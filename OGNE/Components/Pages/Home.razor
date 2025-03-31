@@ -17,10 +17,21 @@
     <div>Last modified: @LastModified</div>
 </div>
 
+<div>
+    @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
+    {
+        
+            if(kvp.Value.Count > currentMostActive.Count)
+            {
+                currentMostActive = kvp.Value;
+                testingThing = currentMostActive.First().GetName();
+            }
+    }
+     <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >most active reader; @testingThing</p>
+</div>
 
-@* <p>@testingThing</p>
 
-<p>@readersThatExist</p> *@
+@*<p>@readersThatExist</p> *@
 
 
 <table class="table">
@@ -43,6 +54,7 @@
     </tbody>
 </table>
 
+
 @if (!string.IsNullOrEmpty(ErrorMessage))
 {
     <div>Error: @ErrorMessage</div>
@@ -59,7 +71,7 @@
     const int MAX_FILESIZE = 10000 * 1024; // 2 MB
     private List<ReaderEvent> masterList = new List<ReaderEvent>();
 
-
+    private List<ReaderEvent> currentMostActive = new List<ReaderEvent>();
     public string testingThing = "";
 
     public int readersThatExist = 0;

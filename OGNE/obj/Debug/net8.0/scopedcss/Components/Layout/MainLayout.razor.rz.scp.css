@@ -13,8 +13,8 @@ main[b-9xtz57wh8t] {
 }
 
 .top-row[b-9xtz57wh8t] {
-    background-color: #ff0000;
-    border-bottom: 1px solid #b83939;
+    background-color: #ff3c3c;
+    /* border-bottom: 1px solid #b83939; */
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
