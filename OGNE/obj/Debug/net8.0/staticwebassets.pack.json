@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\gf1043724\\Desktop\\OGNE\\OGNE\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\OGNE.bundle.scp.css",
+      "PackagePath": "staticwebassets\\OGNE.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\gf1043724\\Desktop\\OGNE\\OGNE\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\gf1043724\\Desktop\\OGNE\\OGNE\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\gf1043724\\Desktop\\OGNE\\OGNE\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\gf1043724\\Desktop\\OGNE\\OGNE\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.OGNE.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.OGNE.props",
+      "PackagePath": "build\\OGNE.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.OGNE.props",
+      "PackagePath": "buildMultiTargeting\\OGNE.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.OGNE.props",
+      "PackagePath": "buildTransitive\\OGNE.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
