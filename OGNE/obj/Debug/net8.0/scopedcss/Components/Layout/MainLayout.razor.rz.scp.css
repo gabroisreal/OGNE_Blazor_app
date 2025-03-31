@@ -13,8 +13,8 @@ main[b-9xtz57wh8t] {
 }
 
 .top-row[b-9xtz57wh8t] {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
+    background-color: #ff0000;
+    border-bottom: 1px solid #b83939;
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
@@ -35,6 +35,7 @@ main[b-9xtz57wh8t] {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
 
 @media (max-width: 640.98px) {
     .top-row[b-9xtz57wh8t] {

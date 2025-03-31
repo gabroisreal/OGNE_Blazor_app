@@ -2,15 +2,14 @@
 @rendermode InteractiveServer
 @attribute [StreamRendering]
 
-<h1>Here you will be uploading files (cool right)</h1>
+<h1>Reader project</h1>
 
 <div style="margin-bottom: auto; display: flex;">
-    <div>upload file: </div>
     <InputFile OnChange="FileUploaded" />
 </div>
 
 
-<h2>Selected file</h2>
+<h2>File Info</h2>
 <div>
     <div>File name: @FileName</div>
     <div>File size: @FileSize.ToString("n0") bytes</div>
@@ -19,9 +18,9 @@
 </div>
 
 
-<p>@testingThing</p>
+@* <p>@testingThing</p>
 
-<p>@readersThatExist</p>
+<p>@readersThatExist</p> *@
 
 
 <table class="table">
@@ -29,7 +28,7 @@
             <tr>
                 <th>Key</th>
                 <th>calls</th>
-                <th>readername</th>
+                <th>reader name</th>
             </tr>
     </thead>
     <tbody>
@@ -179,6 +178,6 @@
         }
 
 
-        }
+        
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qVQyKJT0N4m2hdP7iOu593oeNb2xtMG/xmTTq5ea/Yw=",
+  "Hash": "7Z1USzu2+ICjQ0L7qhvI0Dhl2Fv8exH9N4LT76atDcg=",
   "Source": "OGNE",
   "BasePath": "_content/OGNE",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
+    },
+    {
+      "Identity": "C:\\Users\\gf1043724\\Desktop\\OGNE\\OGNE\\wwwroot\\OGE+Logo+Black.png",
+      "SourceId": "OGNE",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gf1043724\\Desktop\\OGNE\\OGNE\\wwwroot\\",
+      "BasePath": "_content/OGNE",
+      "RelativePath": "OGE+Logo+Black.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\OGE+Logo+Black.png"
     }
   ]
 }
