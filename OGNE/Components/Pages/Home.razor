@@ -24,10 +24,23 @@
             if(kvp.Value.Count > currentMostActive.Count)
             {
                 currentMostActive = kvp.Value;
-                testingThing = currentMostActive.First().GetName();
+                mostActiveReader = currentMostActive.First().GetName();
             }
     }
-     <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >most active reader; @testingThing</p>
+     <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >most active reader; @mostActiveReader</p>
+</div>
+
+<div>
+    @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
+    {
+        
+            if(kvp.Value.Count < currentMostActive.Count || kvp.Value[0] == masterList[0])
+            {
+                currentLeastActive = kvp.Value;
+                leastActiveReader = currentLeastActive.First().GetName();
+            }
+    }
+     <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >least active reader; @leastActiveReader</p>
 </div>
 
 
@@ -72,7 +85,12 @@
     private List<ReaderEvent> masterList = new List<ReaderEvent>();
 
     private List<ReaderEvent> currentMostActive = new List<ReaderEvent>();
+
+         private List<ReaderEvent> currentLeastActive = new List<ReaderEvent>();
     public string testingThing = "";
+
+     public string mostActiveReader = "";
+     public string leastActiveReader = "";
 
     public int readersThatExist = 0;
 
