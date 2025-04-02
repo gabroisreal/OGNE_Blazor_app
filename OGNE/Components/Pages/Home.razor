@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 @attribute [StreamRendering]
 
+
 <h1>Reader project</h1>
 
 <div style="margin-bottom: auto; display: flex;">
@@ -34,7 +35,7 @@
     @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
     {
         
-            if(kvp.Value.Count < currentMostActive.Count || kvp.Value[0] == masterList[0])
+            if(kvp.Value.Count < currentLeastActive.Count || kvp.Value[0] == masterList[0])
             {
                 currentLeastActive = kvp.Value;
                 leastActiveReader = currentLeastActive.First().GetName();
