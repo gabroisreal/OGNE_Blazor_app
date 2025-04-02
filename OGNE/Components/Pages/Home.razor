@@ -18,6 +18,9 @@
     <div>Last modified: @LastModified</div>
 </div>
 
+    <button class="btn btn-primary" @onclick="()=> showMostActiveReader = !showMostActiveReader">show most active reader</button>
+    <button class="btn btn-primary" @onclick="()=> showLeastActiveReader = !showLeastActiveReader">show least active reader</button>
+
 <div>
     @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
     {
@@ -28,7 +31,10 @@
                 mostActiveReader = currentMostActive.First().GetName();
             }
     }
-     <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >most active reader; @mostActiveReader</p>
+    @if(showMostActiveReader)
+    {
+        <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >most active reader; @mostActiveReader</p>
+    }
 </div>
 
 <div>
@@ -41,8 +47,12 @@
                 leastActiveReader = currentLeastActive.First().GetName();
             }
     }
-     <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >least active reader; @leastActiveReader</p>
+    @if(showLeastActiveReader)
+    {
+        <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >least active reader; @leastActiveReader</p>
+    }
 </div>
+
 
 
 @*<p>@readersThatExist</p> *@
@@ -94,6 +104,10 @@
      public string leastActiveReader = "";
 
     public int readersThatExist = 0;
+
+    private bool showMostActiveReader;
+
+    private bool showLeastActiveReader;
 
     public async Task FileUploaded(InputFileChangeEventArgs e)
     {
