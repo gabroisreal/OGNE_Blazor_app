@@ -20,6 +20,7 @@
 
     <button class="btn btn-primary" @onclick="()=> showMostActiveReader = !showMostActiveReader">show most active reader</button>
     <button class="btn btn-primary" @onclick="()=> showLeastActiveReader = !showLeastActiveReader">show least active reader</button>
+    <button class="btn btn-primary" @onclick="()=> showUniqueUsers = !showUniqueUsers">show unique users</button>
 
 <div>
     @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
@@ -52,6 +53,30 @@
         <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >least active reader; @leastActiveReader</p>
     }
 </div>
+
+<div>
+    @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
+    {
+        foreach(ReaderEvent i in kvp.Value)
+        {
+            if(!ids.Contains(i.IDHASH))
+            {
+                ids.Add(i.IDHASH);
+            }
+        }
+    }
+    @if(showUniqueUsers)
+    {
+        <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >unique users; @ids.Count</p>
+        <ul style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >
+            @foreach(string i in ids)
+            {
+                <li>@i</li>
+            }
+           
+        </ul>
+    }
+</div> 
 
 
 
@@ -97,17 +122,21 @@
 
     private List<ReaderEvent> currentMostActive = new List<ReaderEvent>();
 
-         private List<ReaderEvent> currentLeastActive = new List<ReaderEvent>();
+    private List<ReaderEvent> currentLeastActive = new List<ReaderEvent>();
     public string testingThing = "";
 
      public string mostActiveReader = "";
      public string leastActiveReader = "";
+
+     private List<string> ids = new List<string>();
 
     public int readersThatExist = 0;
 
     private bool showMostActiveReader;
 
     private bool showLeastActiveReader;
+
+    private bool showUniqueUsers;
 
     public async Task FileUploaded(InputFileChangeEventArgs e)
     {
@@ -182,7 +211,7 @@
         private string EVENT_TIME_UTC;
         private string LOCATION;
         private string READERDESC;
-        private string IDHASH;
+        public string IDHASH;
         public string DEVID;
         public string MACHINE;
 
