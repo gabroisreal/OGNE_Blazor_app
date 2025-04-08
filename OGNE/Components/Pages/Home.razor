@@ -78,6 +78,19 @@
     }
 </div> 
 
+<div>
+    @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
+    {
+        foreach(string id in ids)
+        {
+            foreach(ReaderEvent r in kvp.Value)
+            {
+                Console.WriteLine("not finished");
+            }
+        }
+    }
+</div>
+
 
 
 @*<p>@readersThatExist</p> *@
@@ -137,6 +150,8 @@
     private bool showLeastActiveReader;
 
     private bool showUniqueUsers;
+
+    private List<string> leastActiveUser = new List<string>();
 
     public async Task FileUploaded(InputFileChangeEventArgs e)
     {
