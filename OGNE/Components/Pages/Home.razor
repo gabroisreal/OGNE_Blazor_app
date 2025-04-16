@@ -3,6 +3,7 @@
 @attribute [StreamRendering]
 
 
+
 <h1>Upload OG&E Reader Data</h1>
 
 <div style="margin-bottom: auto; display: flex;">
@@ -22,6 +23,8 @@
     <button class="btn btn-primary" @onclick="()=> showLeastActiveReader = !showLeastActiveReader">show least active reader</button>
     <button class="btn btn-primary" @onclick="()=> showUniqueUsers = !showUniqueUsers">show unique users</button>
     <button class="btn btn-primary" @onclick="()=> showLeastActiveUsers = !showLeastActiveUsers">show least active users</button>
+
+    <button class="btn btn-primary" @onclick="CreatePDF">create pdf</button>
 
 <div>
     @foreach(KeyValuePair<string, List<ReaderEvent>> kvp in readerDictionary)
@@ -63,7 +66,7 @@
             if(!ids.Contains(i.IDHASH))
             {
                 ids.Add(i.IDHASH);
-                uniqueUsers.Add(i.IDHASH, 0);
+                uniqueUsers.Add(i.IDHASH, 1);
             }
             if(ids.Contains(i.IDHASH))
             {
@@ -76,15 +79,10 @@
     {
         <p style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >unique users; @ids.Count</p>
         <ul style="color:#ff3c3c; text-shadow: 1px 1px 2px black, 0 0 25px #ff3c3c, 0 0 5px #720000;" >
-            @* @foreach(string i in ids)
+            @foreach(string i in ids)
             {
                 <li>@i</li>
-            }  *@
-            @foreach(KeyValuePair<string,int> kvp in uniqueUsers)
-            {
-                <li>@kvp.ToString()</li>
-            } 
-           
+            }    
         </ul>
     }
 </div> 
@@ -242,6 +240,22 @@
         }
     }
 
+    private void CreatePDF()
+    {
+        using var document = new Document(new PdfDocument(new PdfWriter("helloworld-pdf.pdf")));
+
+        //testing font don't use
+        PdfFont help = PdfFontFactory.CreateFont(StandardFonts.ZAPFDINGBATS);
+        Style test = new Style().SetFont(help);
+
+        //PdfFont font = PdfFontFactory.CreateFont(StandardFontFamilies.TIMES);
+        //Style style = new Style().SetFont(font);
+        
+        document.Add(new Paragraph("most active reader: " + mostActiveReader));
+        document.Add(new Paragraph("least active reader: " + leastActiveReader));
+        document.Add(new Paragraph("the god you once knew is dead").AddStyle(test));
+    }
+
     class ReaderEvent
     {
         private string EVENT_TIME_UTC;
@@ -286,8 +300,5 @@
         {
             return $"{LOCATION} , {READERDESC}";
         }
-
-
-        
     }
 }
