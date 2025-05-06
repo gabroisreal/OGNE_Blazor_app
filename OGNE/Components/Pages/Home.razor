@@ -251,6 +251,17 @@
 
         //PdfFont font = PdfFontFactory.CreateFont(StandardFontFamilies.TIMES);
         //Style style = new Style().SetFont(font);
+
+        /* <div>File name: @FileName</div>
+    <div>File size: @FileSize.ToString("n0") bytes</div>
+    <div>File type: @FileType</div>
+    <div>Last modified: @LastModified</div>*/
+        
+        document.Add(new Paragraph("File Name:" + FileName));
+        document.Add(new Paragraph("File Size:" +FileSize.ToString()));
+        document.Add(new Paragraph("File Type:" + FileType));
+        document.Add(new Paragraph("Last Modified:" + LastModified.ToString()));
+
         
         document.Add(new Paragraph("most active reader: " + mostActiveReader));
         document.Add(new Paragraph("least active reader: " + leastActiveReader));
