@@ -242,6 +242,7 @@
 
     private void CreatePDF()
     {
+        
         using var document = new Document(new PdfDocument(new PdfWriter("helloworld-pdf.pdf")));
 
         //testing font don't use
@@ -270,6 +271,8 @@
             idTable.AddCell(i);
         }    
         document.Add(idTable);
+
+        document.Close();
         //document.Add(new Paragraph("the god you once knew is dead").AddStyle(test));
     }
 
