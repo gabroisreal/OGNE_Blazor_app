@@ -254,17 +254,22 @@
         document.Add(new Paragraph("most active reader: " + mostActiveReader));
         document.Add(new Paragraph("least active reader: " + leastActiveReader));
 
+
+        Table leastActiveTable = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
         document.Add(new Paragraph("least active users:"));
         foreach(string user in leastActiveUser)
         {
-            document.Add(new Paragraph(user));
+            leastActiveTable.AddCell(user);
         }
+        document.Add(leastActiveTable);
 
+        Table idTable = new Table(UnitValue.CreatePercentArray(1)).UseAllAvailableWidth();
         document.Add(new Paragraph("unique ids:"));
         foreach(string i in ids)
         {
-            document.Add(new Paragraph(i));
+            idTable.AddCell(i);
         }    
+        document.Add(idTable);
         //document.Add(new Paragraph("the god you once knew is dead").AddStyle(test));
     }
 
